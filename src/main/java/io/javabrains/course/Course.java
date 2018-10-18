@@ -1,11 +1,14 @@
-package io.javabrains.topic;
+package io.javabrains.course;
+
+import io.javabrains.topic.Topic;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 //Create a table called "Course"
-public class Topic {
+public class Course {
 
     //Table "Course" will have an id column, a name column and a description column.
     @Id
@@ -14,14 +17,19 @@ public class Topic {
     private String name;
     private String description;
 
-    public Topic() {
+    //You can have many courses that have one topic:
+    @ManyToOne
+    private Topic topic;
+
+    public Course() {
 
     }
 
-    public Topic(String id, String name, String description) {
+    public Course(String id, String name, String description, String topicID) {
         this.id = id;
         this.name = name;
         this.description = description;
+        this.topic = new Topic(topicID,"","");
     }
 
     public String getId() {
@@ -46,5 +54,13 @@ public class Topic {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Topic getTopic() {
+        return topic;
+    }
+
+    public void setTopic(Topic topic) {
+        this.topic = topic;
     }
 }

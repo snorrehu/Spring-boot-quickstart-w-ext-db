@@ -10,7 +10,7 @@ import java.util.List;
 public class TopicController {
 
     //When spring creates an instance of this class it will look at all its member variables
-    //and see if any of them has a dependency to topic service. It will thereafter INJECT these
+    //and see if any of them has a dependency to io.javabrains.course service. It will thereafter INJECT these
     //dependencies where they are needed. This dependency is declared by using Aurowired annotation:
     //Take instance of TopicService (created at program start) and inject it were it is needed:
     @Autowired
@@ -19,7 +19,7 @@ public class TopicController {
     @RequestMapping("/topics")
     public List<Topic> getAllTopics(){
 
-        //create topic objects "on the fly":
+        //create io.javabrains.course objects "on the fly":
         return topicService.getAllTopics();
     }
 
@@ -27,10 +27,10 @@ public class TopicController {
     //"Map this method on any POST request on URI /topics"
     @RequestMapping(method = RequestMethod.POST, value = "/topics")
     //Tell spring MVC that your request payload is going to contain a json representation of
-    //this topic instance. Take that request body and convert it to a topic instance and pass it to the
+    //this io.javabrains.course instance. Take that request body and convert it to a io.javabrains.course instance and pass it to the
     // addTopic method:
     public void createTopic(@RequestBody Topic topic){
-        //Get post body, convert it to topic instance and add it to the list of topics:
+        //Get post body, convert it to io.javabrains.course instance and add it to the list of topics:
         topicService.addTopic(topic);
     }
 

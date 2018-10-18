@@ -1,9 +1,11 @@
-package io.javabrains.topic;
+package io.javabrains.course;
 
 
 import org.springframework.data.repository.CrudRepository;
 
-public interface TopicRepository extends CrudRepository<Topic,String> {
+import java.util.List;
+
+public interface CourseRepository extends CrudRepository<Course,String> {
 
     //In a typical class you would do...:
     // getAllTopics()
@@ -11,5 +13,7 @@ public interface TopicRepository extends CrudRepository<Topic,String> {
     // updateTopic(Course t)
     // deleteTopic(String id)
     // The above is unnecessary! Make interface!
+
+    public List<Course> findByTopicId(String topicid);
 
 }

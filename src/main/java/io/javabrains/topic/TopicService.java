@@ -25,7 +25,7 @@ public class TopicService {
     public List<Topic> getAllTopics(){
         //return topics;
         //The following does this: Connect to db,queery for all the topics, convert each of the rows
-        //onto topic instances and get it back!!
+        //onto io.javabrains.course instances and get it back!!
         List<Topic> topics = new ArrayList<>();
         topicRepository.findAll().forEach(topics::add);
         return topics;
